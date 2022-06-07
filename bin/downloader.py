@@ -69,7 +69,7 @@ class Downloader():
 
     def download_playlist(self, playlist_url, output_dir='', to_mp3=True):
         self.output_dir = output_dir
-        urls = Playlist(playlist_url)[:3]
+        urls = Playlist(playlist_url)
         self.download_songs(urls=urls, to_mp3=to_mp3)
 
 

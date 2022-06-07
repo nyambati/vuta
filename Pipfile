@@ -10,6 +10,7 @@ Unidecode = "==0.4.19"
 urllib3 = "==1.13.1"
 numpy = "*"
 youtube-dl = "==2020.12.2"
+pytube = "*"
 
 [dev-packages]
 
