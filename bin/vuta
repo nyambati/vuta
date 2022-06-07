@@ -3,10 +3,18 @@ import os
 from downloader import Downloader
 
 dw = Downloader()
-output_dir = 'music'
+
 playlist_url = str(input("Enter playlist url: \n>>"))
-if not os.exists(output_dir):
+
+if not playlist_url:
+    print("No playlist url provided")
+    os.exit(1)
+
+output_dir = input("Enter output directory [music]") or 'music'
+
+if not os.path.exists(output_dir):
     os.makedirs(output_dir, exist_ok=True)
+
 dw.download_playlist(
     to_mp3=True,
     output_dir=output_dir,
