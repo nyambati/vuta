@@ -1,5 +1,7 @@
 #!/usr/bin/env python
 import os
+import sys
+from pathlib import Path
 from downloader import Downloader
 
 dw = Downloader()
@@ -8,9 +10,10 @@ playlist_url = str(input("Enter playlist url: \n>>"))
 
 if not playlist_url:
     print("No playlist url provided")
-    os.exit(1)
+    sys.exit(1)
 
 output_dir = input("Enter output directory [music]") or 'music'
+output_dir = f"{Path.home()}/music/{output_dir}"
 
 if not os.path.exists(output_dir):
     os.makedirs(output_dir, exist_ok=True)

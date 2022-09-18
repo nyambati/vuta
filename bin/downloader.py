@@ -13,7 +13,6 @@ class Downloader():
     def __init__(self):
         self.counter = Counter()
         self.output_dir = ''
-        self.allowParallelism = False
 
     def convert_file(self, input_file, desired_format, extra_audio=0, delete_old=True):
         name = input_file.split(os.sep)[-1]  # Get filename from filepath
