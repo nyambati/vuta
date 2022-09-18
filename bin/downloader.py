@@ -25,7 +25,7 @@ class Downloader():
             return
         song = AudioSegment.from_file(input_file)
         song = song+extra_audio
-        song.export(output_file, format=desired_format)
+        song.export(output_file, format=desired_format, bitrate="320k")
         if delete_old:
             os.remove(input_file)
 
@@ -40,9 +40,9 @@ class Downloader():
         video = pafy.new(url)
         audio = video.getbestaudio()
         title = audio.title
-        # Replace also spaces for avoiding OS problems
-        for c in ['.', '\"', '|', "'", '/', ' ', '"', '+', '?']:
-            title = title.replace(c, '_')
+        # # Replace also spaces for avoiding OS problems
+        # for c in ['.', '\"', '|', "'", '/', ' ', '"', '+', '?']:
+        #     title = title.replace(c, '_')
         title = unidecode(title)
         output_file = os.path.join(self.output_dir, title+'.'+audio.extension)
         desired_format = 'mp3'
@@ -55,7 +55,8 @@ class Downloader():
 
         self.convert_file(
             input_file=output_file,
-            desired_format=desired_format)
+            desired_format=desired_format
+        )
 
     def download_songs(self, to_mp3, urls):
         to_mp3 = to_mp3
